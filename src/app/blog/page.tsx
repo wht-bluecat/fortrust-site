@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CTABanner } from "@/components/cta-banner";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
   title: "Study Abroad Blog Philippines | Tips, Costs & Guides",
@@ -24,14 +25,10 @@ const placeholderPosts = [
 export default function BlogPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-700 py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white">Blog</h1>
-          <p className="mt-4 text-lg text-teal-100 max-w-2xl">
-            Tips, guides, and real stories to help you study abroad from the Philippines.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Blog"
+        subtitle="Tips, guides, and real stories to help you study abroad from the Philippines."
+      />
 
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -54,8 +51,8 @@ export default function BlogPage() {
           {/* Posts Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {placeholderPosts.map((post) => (
-              <article key={post.title} className="group rounded-2xl border border-gray-200 overflow-hidden hover:border-teal-300 hover:shadow-lg transition-all">
-                <div className="aspect-video bg-teal-50 flex items-center justify-center">
+              <article key={post.title} className="group rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
+                <div className="aspect-video bg-gradient-to-br from-teal-50 to-cyan-50 flex items-center justify-center">
                   <p className="text-sm text-teal-300">Featured image</p>
                 </div>
                 <div className="p-6">

@@ -45,3 +45,201 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* ===== SCROLL REVEAL ANIMATIONS ===== */
+
+/* Base: elements start hidden */
+.reveal-fade-up,
+.reveal-fade-in,
+.reveal-scale-in,
+.reveal-slide-left,
+.reveal-slide-right {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.reveal-fade-up {
+  transform: translateY(24px);
+}
+
+.reveal-scale-in {
+  transform: scale(0.95);
+}
+
+.reveal-slide-left {
+  transform: translateX(-24px);
+}
+
+.reveal-slide-right {
+  transform: translateX(24px);
+}
+
+/* Revealed state: triggered by IntersectionObserver */
+.reveal-fade-up.revealed {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.reveal-fade-in.revealed {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.reveal-scale-in.revealed {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+.reveal-slide-left.revealed {
+  animation: slideLeft 0.6s ease-out forwards;
+}
+
+.reveal-slide-right.revealed {
+  animation: slideRight 0.6s ease-out forwards;
+}
+
+/* Stagger children */
+.reveal-child {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.reveal-child.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== FLOATING BLOB ANIMATION ===== */
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(10px, -15px) scale(1.02);
+  }
+  66% {
+    transform: translate(-8px, 10px) scale(0.98);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 12s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 10s ease-in-out 2s infinite;
+}
+
+/* ===== GRADIENT SHIMMER (for glassmorphism card) ===== */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ===== DOT GRID PATTERN ===== */
+.bg-dot-pattern {
+  background-image: radial-gradient(circle, rgba(13, 148, 136, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ===== SAFE AREA FOR MOBILE CTA ===== */
+.safe-area-bottom {
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
+/* ===== CARD HOVER EFFECTS ===== */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== IMAGE CARD ZOOM ===== */
+.img-zoom {
+  transition: transform 0.5s ease;
+}
+
+.group:hover .img-zoom {
+  transform: scale(1.05);
+}
+
+/* ===== GRADIENT BORDER CARD ===== */
+.gradient-border {
+  position: relative;
+  background: linear-gradient(135deg, #14b8a6, #06b6d4) padding-box,
+              linear-gradient(135deg, #14b8a6, #06b6d4) border-box;
+}
+
+/* ===== ANGLED HERO CLIP ===== */
+.hero-angled {
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+}
+
+@media (min-width: 768px) {
+  .hero-angled {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+}
+
+/* ===== HORIZONTAL SCROLL SNAP (mobile destination cards) ===== */
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-snap-x > * {
+  scroll-snap-align: start;
+}
+
+/* Hide scrollbar for clean look */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

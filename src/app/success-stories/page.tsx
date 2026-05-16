@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CTABanner } from "@/components/cta-banner";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
   title: "Success Stories | Filipino Students Who Studied Abroad",
@@ -19,24 +20,18 @@ const stories = [
 export default function SuccessStoriesPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-700 py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white">
-            Success Stories
-          </h1>
-          <p className="mt-4 text-lg text-teal-100 max-w-2xl">
-            Real students. Real journeys. 3,000+ visas granted and counting.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Success Stories"
+        subtitle="Real students. Real journeys. 3,000+ visas granted and counting."
+      />
 
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {stories.map((story) => (
-              <div key={story.name} className="rounded-2xl border border-gray-200 p-6 flex flex-col">
+              <div key={story.name} className="rounded-2xl border border-gray-100 p-6 flex flex-col hover:shadow-lg transition-all duration-300">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal-100 to-cyan-100 flex items-center justify-center">
                     <span className="text-teal-600 font-bold text-lg">{story.name[0]}</span>
                   </div>
                   <div>

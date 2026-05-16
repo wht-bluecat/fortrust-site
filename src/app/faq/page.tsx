@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { FAQAccordion } from "@/components/faq-accordion";
 import { CTABanner } from "@/components/cta-banner";
 import { FAQPageJsonLd } from "@/components/json-ld";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
   title: "FAQ | Study Abroad Questions Answered",
@@ -51,16 +52,10 @@ export default function FAQPage() {
   return (
     <>
       <FAQPageJsonLd items={allItems} />
-      <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-700 py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white">
-            Frequently Asked Questions
-          </h1>
-          <p className="mt-4 text-lg text-teal-100 max-w-2xl">
-            Everything you need to know about studying abroad with Fortrust.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Frequently Asked Questions"
+        subtitle="Everything you need to know about studying abroad with Fortrust."
+      />
 
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-16">

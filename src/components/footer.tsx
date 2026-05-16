@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const offices = [
   { name: "Makati (HQ)", address: "5th Floor, Liberty Building, A. Arnaiz Avenue, Makati City" },
@@ -36,11 +37,20 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <Link href="/" className="inline-block">
-              <span className="font-heading text-2xl font-bold text-white">Fortrust</span>
-              <span className="block text-xs text-teal-400 font-medium uppercase tracking-wider mt-0.5">
-                Education Services
-              </span>
+            <Link href="/" className="inline-flex items-center gap-3">
+              <Image
+                src="/logo.jpg"
+                alt="Fortrust Education Services"
+                width={44}
+                height={44}
+                className="rounded-full"
+              />
+              <div>
+                <span className="block font-heading text-xl font-bold text-white">Fortrust</span>
+                <span className="block text-[10px] text-teal-400 font-medium uppercase tracking-wider">
+                  Education Services
+                </span>
+              </div>
             </Link>
             <p className="mt-4 text-sm text-teal-300 leading-relaxed">
               The Philippines&apos; most trusted education agency. Free consultation, 95% visa

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CTABanner } from "@/components/cta-banner";
@@ -143,20 +144,31 @@ export default async function CountryPage({ params }: { params: Promise<{ countr
 
   return (
     <>
-      <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-700 py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 sm:py-28 overflow-hidden">
+        {/* Country photo background */}
+        <Image
+          src={`/destinations/${data.slug}.jpg`}
+          alt={`Study in ${data.name}`}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-900/90 via-teal-900/75 to-teal-800/60" />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="text-5xl">{data.flag}</span>
-            <h1 className="mt-4 font-heading text-4xl sm:text-5xl font-bold text-white leading-tight">
-              Study in <span className="text-teal-300">{data.name}</span>
+            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white leading-tight">
+              Study in <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-300">{data.name}</span>
             </h1>
-            <p className="mt-4 text-lg text-teal-100">{data.tagline}</p>
+            <p className="mt-4 text-lg text-teal-100/90">{data.tagline}</p>
             <div className="mt-8">
               <a
                 href={process.env.NEXT_PUBLIC_SETMORE_URL || "https://fortrustmakati.setmore.com"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-bold text-teal-800 shadow-xl hover:bg-teal-50 transition-all"
+                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-bold text-teal-800 shadow-xl hover:bg-teal-50 hover:shadow-2xl hover:scale-[1.02] transition-all duration-200"
               >
                 Book Free {data.name} Consultation
               </a>
@@ -187,8 +199,8 @@ export default async function CountryPage({ params }: { params: Promise<{ countr
             </div>
             <div className="space-y-6">
               {/* Cost Table */}
-              <div className="rounded-xl border border-gray-200 overflow-hidden">
-                <div className="bg-teal-50 px-6 py-4">
+              <div className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+                <div className="bg-gradient-to-r from-teal-50 to-cyan-50 px-6 py-4">
                   <h3 className="font-bold text-gray-900">Cost Breakdown</h3>
                 </div>
                 <div className="divide-y divide-gray-100">
@@ -201,7 +213,7 @@ export default async function CountryPage({ params }: { params: Promise<{ countr
                 </div>
               </div>
               {/* Work Rights */}
-              <div className="rounded-xl border border-gray-200 p-6">
+              <div className="rounded-2xl border border-gray-100 p-6 shadow-sm">
                 <h3 className="font-bold text-gray-900">Work Rights</h3>
                 <p className="mt-2 text-sm text-gray-600 leading-relaxed">{data.workRights}</p>
               </div>

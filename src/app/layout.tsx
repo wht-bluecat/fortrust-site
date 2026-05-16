@@ -5,6 +5,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { GoogleAnalytics, MetaPixel, GTM } from "@/components/analytics";
 import { OrganizationJsonLd, LocalBusinessJsonLd } from "@/components/json-ld";
+import { MobileCTA } from "@/components/mobile-cta";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -54,6 +55,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <MobileCTA />
       </body>
     </html>
   );

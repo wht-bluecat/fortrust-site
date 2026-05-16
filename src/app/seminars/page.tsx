@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { CTABanner } from "@/components/cta-banner";
 import { FAQAccordion } from "@/components/faq-accordion";
+import { PageHero } from "@/components/page-hero";
+import { SeminarsClientSections } from "./client-sections";
 
 export const metadata: Metadata = {
   title: "Free Study Abroad Seminars Manila | Every Tue & Sat",
@@ -38,100 +40,25 @@ const faqItems = [
 export default function SeminarsPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-700 py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <span className="inline-flex items-center rounded-full bg-teal-500/20 px-3 py-1 text-sm font-medium text-teal-200 ring-1 ring-teal-400/30">
-              100% Free &bull; No Commitment
-            </span>
-            <h1 className="mt-6 font-heading text-4xl sm:text-5xl font-bold text-white leading-tight">
-              Free Study Abroad{" "}
-              <span className="text-teal-300">Seminars</span>
-            </h1>
-            <p className="mt-6 text-lg text-teal-100 leading-relaxed">
-              Every Tuesday and Saturday, 1 hour. Learn everything you need to know about studying
-              abroad — costs, requirements, visa process, and pathways to permanent residency.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <a
-                href={process.env.NEXT_PUBLIC_SETMORE_URL || "https://fortrustmakati.setmore.com"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-bold text-teal-800 shadow-xl hover:bg-teal-50 transition-all"
-              >
-                Reserve Your Spot
-              </a>
-            </div>
-          </div>
+      <PageHero
+        variant="angled"
+        badge={{ label: "100% Free • No Commitment", color: "teal" }}
+        title={<>Free Study Abroad <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-300">Seminars</span></>}
+        subtitle="Every Tuesday and Saturday, 1 hour. Learn everything you need to know about studying abroad — costs, requirements, visa process, and pathways to permanent residency."
+      >
+        <div className="mt-8">
+          <a
+            href={process.env.NEXT_PUBLIC_SETMORE_URL || "https://fortrustmakati.setmore.com"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-bold text-teal-800 shadow-xl hover:bg-teal-50 hover:shadow-2xl hover:scale-[1.02] transition-all duration-200"
+          >
+            Reserve Your Spot
+          </a>
         </div>
-      </section>
+      </PageHero>
 
-      {/* Schedule */}
-      <section className="py-20 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="font-heading text-3xl font-bold text-gray-900">Schedule</h2>
-              <div className="mt-8 space-y-4">
-                <div className="flex items-center gap-4 rounded-xl border border-gray-200 p-5">
-                  <div className="text-center shrink-0">
-                    <p className="text-2xl font-bold text-teal-700">TUE</p>
-                    <p className="text-xs text-gray-500">Weekly</p>
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900">Tuesday Seminar</p>
-                    <p className="text-sm text-gray-600">1 hour &bull; In-person &amp; Online</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 rounded-xl border border-gray-200 p-5">
-                  <div className="text-center shrink-0">
-                    <p className="text-2xl font-bold text-teal-700">SAT</p>
-                    <p className="text-xs text-gray-500">Weekly</p>
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900">Saturday Seminar</p>
-                    <p className="text-sm text-gray-600">1 hour &bull; In-person &amp; Online</p>
-                  </div>
-                </div>
-              </div>
-              <p className="mt-6 text-sm text-gray-500">
-                Location: Fortrust Makati HQ, 5th Floor, Liberty Building, A. Arnaiz Avenue
-              </p>
-              <p className="text-sm text-gray-500">
-                Also available in Cebu &amp; Baguio — contact us for local schedules.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="font-heading text-3xl font-bold text-gray-900">What You&apos;ll Learn</h2>
-              <ul className="mt-8 space-y-4">
-                {whatYoullLearn.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <svg className="h-5 w-5 text-teal-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                    <span className="text-gray-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Seminar Photos Placeholder */}
-      <section className="py-16 bg-teal-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading text-2xl font-bold text-gray-900">Past Seminars</h2>
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <div key={i} className="aspect-video rounded-lg bg-teal-100 flex items-center justify-center">
-                <p className="text-sm text-teal-400">Photo placeholder</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <SeminarsClientSections whatYoullLearn={whatYoullLearn} />
 
       {/* FAQ */}
       <section className="py-20 bg-white">
