@@ -59,7 +59,7 @@ export function MobileCTA() {
           href={process.env.NEXT_PUBLIC_SETMORE_URL || "https://fortrustmakati.setmore.com"}
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full text-center rounded-full bg-teal-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-teal-700 transition-colors"
+          className="block w-full text-center rounded-full bg-brand-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-brand-600 transition-colors"
         >
           Book Free Consultation
         </a>

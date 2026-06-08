@@ -7,17 +7,17 @@ function StatItem({ target, suffix, prefix, label }: { target: number; suffix?: 
 
   return (
     <div className="text-center">
-      <p ref={ref as React.RefObject<HTMLParagraphElement>} className="font-heading text-2xl sm:text-3xl font-bold text-white">
+      <p ref={ref as React.RefObject<HTMLParagraphElement>} className="font-heading text-2xl sm:text-3xl font-extrabold text-white">
         {value}
       </p>
-      <p className="mt-1 text-xs sm:text-sm text-teal-200 font-medium">{label}</p>
+      <p className="mt-1 text-xs sm:text-sm text-navy-200 font-medium">{label}</p>
     </div>
   );
 }
 
 export function StatBar() {
   return (
-    <section className="bg-teal-700 py-6">
+    <section className="bg-navy-800 py-7">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
           <StatItem target={95} suffix="%" label="Visa Approval Rate" />

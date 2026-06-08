@@ -6,6 +6,8 @@ import { StatBar } from "@/components/stat-bar";
 import { FAQAccordion } from "@/components/faq-accordion";
 import { CTABanner } from "@/components/cta-banner";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { HomeHero } from "@/components/home-hero";
+import { TrustMarquee } from "@/components/trust-marquee";
 
 const destinations = [
   {
@@ -136,106 +138,11 @@ const faqItems = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero — Variant 1: Grand */}
-      <section className="relative bg-gradient-to-br from-teal-900 via-teal-800 to-teal-700 overflow-hidden">
-        {/* Floating gradient blobs */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl animate-float" />
-          <div className="absolute top-1/2 -left-20 w-72 h-72 bg-cyan-400/10 rounded-full blur-3xl animate-float-slow" />
-          <div className="absolute -bottom-20 right-1/4 w-64 h-64 bg-teal-300/8 rounded-full blur-3xl animate-float-delayed" />
-        </div>
+      {/* Hero — animated landing */}
+      <HomeHero />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
-            {/* Left: Text */}
-            <div>
-              <p className="text-teal-300 text-sm font-semibold uppercase tracking-wider mb-4">
-                The Philippines&apos; Most Trusted Education Agency
-              </p>
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Study Abroad.{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-300">
-                  Change Your Life.
-                </span>
-              </h1>
-              <p className="mt-6 text-lg sm:text-xl text-teal-100/90 leading-relaxed max-w-2xl">
-                95% visa approval rate. 3,000+ students sent abroad since 2013. Free consultation —
-                always.
-              </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <a
-                  href={process.env.NEXT_PUBLIC_SETMORE_URL || "https://fortrustmakati.setmore.com"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-bold text-teal-800 shadow-xl hover:bg-teal-50 hover:shadow-2xl hover:scale-[1.02] transition-all duration-200"
-                >
-                  Book Your Free Consultation
-                </a>
-                <Link
-                  href="/seminars"
-                  className="inline-flex items-center justify-center rounded-full border-2 border-white/30 px-8 py-4 text-base font-semibold text-white hover:bg-white/10 hover:border-white/50 transition-all duration-200"
-                >
-                  Attend a Free Seminar
-                </Link>
-              </div>
-              <p className="mt-4 text-sm text-teal-400">
-                Every Tuesday &amp; Saturday &bull; Completely free &bull; No commitment
-              </p>
-            </div>
-
-            {/* Right: Glassmorphism stats card (desktop only) */}
-            <div className="hidden lg:block">
-              <div className="relative ml-auto max-w-sm">
-                <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-8 shadow-2xl">
-                  <h3 className="text-sm font-semibold text-teal-200 uppercase tracking-wider mb-6">
-                    Proven Track Record
-                  </h3>
-                  <div className="space-y-5">
-                    <div className="flex items-center gap-4">
-                      <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center">
-                        <span className="font-heading text-2xl font-bold text-white">95%</span>
-                      </div>
-                      <div>
-                        <p className="text-white font-semibold">Visa Approval Rate</p>
-                        <p className="text-teal-300 text-sm">Industry-leading success</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center">
-                        <span className="font-heading text-xl font-bold text-white">3K+</span>
-                      </div>
-                      <div>
-                        <p className="text-white font-semibold">Students Sent Abroad</p>
-                        <p className="text-teal-300 text-sm">Since 2013</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center">
-                        <span className="font-heading text-xl font-bold text-white">300+</span>
-                      </div>
-                      <div>
-                        <p className="text-white font-semibold">Partner Schools</p>
-                        <p className="text-teal-300 text-sm">Across 4 countries</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center">
-                        <span className="font-heading text-2xl font-bold text-white">$0</span>
-                      </div>
-                      <div>
-                        <p className="text-white font-semibold">Cost to You</p>
-                        <p className="text-teal-300 text-sm">Always free consultation</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* Decorative glow behind card */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 rounded-3xl blur-2xl -z-10" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Trust marquee */}
+      <TrustMarquee />
 
       {/* Stat Bar */}
       <StatBar />
@@ -245,7 +152,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
-              <h2 className="font-heading text-3xl sm:text-4xl font-bold text-gray-900">
+              <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-navy-900">
                 Where do you want to study?
               </h2>
               <p className="mt-3 text-lg text-gray-500">
@@ -276,12 +183,12 @@ export default function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-xl font-bold text-white group-hover:text-teal-300 transition-colors">
+                    <h3 className="text-xl font-bold text-white group-hover:text-brand-400 transition-colors">
                       {dest.country}
                     </h3>
-                    <p className="mt-1 text-sm text-teal-300 font-medium">{dest.highlight}</p>
+                    <p className="mt-1 text-sm text-brand-300 font-semibold">{dest.highlight}</p>
                     <p className="mt-1 text-sm text-white/70">{dest.schools}</p>
-                    <span className="mt-3 inline-flex items-center text-sm font-medium text-white group-hover:text-teal-300 transition-colors">
+                    <span className="mt-3 inline-flex items-center text-sm font-medium text-white group-hover:text-brand-400 transition-colors">
                       Learn more
                       <svg className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -296,15 +203,15 @@ export default function HomePage() {
       </section>
 
       {/* 8-Step Journey */}
-      <section className="py-20 bg-teal-50 bg-dot-pattern">
+      <section className="py-20 bg-navy-50 bg-dot-pattern">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
-              <h2 className="font-heading text-3xl sm:text-4xl font-bold text-gray-900">
+              <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-navy-900">
                 Your 8-Step Journey
               </h2>
               <p className="mt-3 text-lg text-gray-500">
-                From first consultation to visa approval — we guide you every step
+                From first consultation to visa approval, we guide you every step
               </p>
             </div>
           </ScrollReveal>
@@ -317,14 +224,14 @@ export default function HomePage() {
                   style={{ animationDelay: `${i * 80}ms` }}
                 >
                   {/* Step number */}
-                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-teal-500 to-teal-600 text-white font-bold text-sm shadow-sm">
+                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-600 text-white font-bold text-sm shadow-[0_6px_16px_-4px_rgba(242,107,33,0.5)]">
                     {step.step}
                   </span>
                   {/* Connecting line (hidden on mobile, visible on desktop between cards) */}
                   {step.step < 8 && (
-                    <div className="hidden lg:block absolute top-8 -right-3 w-6 h-[2px] bg-teal-200" />
+                    <div className="hidden lg:block absolute top-8 -right-3 w-6 h-[2px] bg-brand-200" />
                   )}
-                  <h3 className="mt-3 text-base font-bold text-gray-900">{step.title}</h3>
+                  <h3 className="mt-3 text-base font-bold text-navy-900">{step.title}</h3>
                   <p className="mt-2 text-sm text-gray-500 leading-relaxed">{step.desc}</p>
                 </div>
               ))}
@@ -338,7 +245,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
-              <h2 className="font-heading text-3xl sm:text-4xl font-bold text-gray-900">
+              <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-navy-900">
                 Why Fortrust?
               </h2>
               <p className="mt-3 text-lg text-gray-500">
@@ -349,12 +256,12 @@ export default function HomePage() {
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {usps.map((usp, i) => (
               <ScrollReveal key={usp.title} animation="fade-up" delay={i * 100}>
-                <div className="flex gap-4 p-5 rounded-2xl hover:bg-teal-50/50 transition-colors duration-300">
-                  <div className="shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-teal-600 text-white shadow-sm">
+                <div className="group flex gap-4 p-5 rounded-2xl border border-transparent hover:border-navy-100 hover:bg-white hover:shadow-[0_18px_40px_-20px_rgba(22,38,89,0.35)] transition-all duration-300">
+                  <div className="shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-navy-700 to-navy-900 text-white shadow-sm transition-transform duration-300 group-hover:scale-110">
                     {usp.icon}
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-gray-900">{usp.title}</h3>
+                    <h3 className="text-base font-bold text-navy-900">{usp.title}</h3>
                     <p className="mt-1.5 text-sm text-gray-500 leading-relaxed">{usp.desc}</p>
                   </div>
                 </div>
@@ -365,19 +272,20 @@ export default function HomePage() {
       </section>
 
       {/* Free Seminar Banner */}
-      <section className="relative bg-teal-800 py-14 overflow-hidden">
+      <section className="relative bg-navy-800 py-14 overflow-hidden">
         <div className="absolute inset-0 bg-dot-pattern opacity-30" />
+        <div className="animate-aurora-slow absolute -right-20 -top-20 h-72 w-72 rounded-full bg-brand-500/20 blur-[90px]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <ScrollReveal animation="slide-left">
               <div>
-                <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white">
+                <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-white">
                   Free Study Abroad Seminars
                 </h2>
-                <p className="mt-2 text-teal-200 text-lg">
+                <p className="mt-2 text-navy-100 text-lg">
                   Every Tuesday &amp; Saturday &bull; 1 hour &bull; No commitment required
                 </p>
-                <p className="mt-1 text-teal-300 text-sm">
+                <p className="mt-1 text-brand-300 text-sm font-medium">
                   Makati HQ &bull; Also available in Cebu &amp; Baguio
                 </p>
               </div>
@@ -387,7 +295,7 @@ export default function HomePage() {
                 href={process.env.NEXT_PUBLIC_SETMORE_URL || "https://fortrustmakati.setmore.com"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-bold text-teal-800 hover:bg-teal-50 hover:scale-[1.02] transition-all duration-200"
+                className="cta-shine inline-flex items-center justify-center rounded-full bg-brand-500 px-6 py-3 text-sm font-bold text-white hover:bg-brand-600 hover:scale-[1.02] transition-all duration-200"
               >
                 Reserve Your Spot
               </a>
@@ -407,7 +315,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
-              <h2 className="font-heading text-3xl sm:text-4xl font-bold text-gray-900">
+              <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-navy-900">
                 Frequently Asked Questions
               </h2>
               <p className="mt-3 text-lg text-gray-500">
@@ -421,7 +329,7 @@ export default function HomePage() {
           <div className="mt-8 text-center">
             <Link
               href="/faq"
-              className="text-sm font-medium text-teal-600 hover:text-teal-700 transition-colors"
+              className="text-sm font-semibold text-brand-600 hover:text-brand-700 transition-colors"
             >
               View all FAQs &rarr;
             </Link>

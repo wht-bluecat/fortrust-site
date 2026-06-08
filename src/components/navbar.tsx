@@ -68,7 +68,7 @@ export function Navbar() {
               priority
             />
             <div className="flex flex-col">
-              <span className="font-heading text-lg font-bold text-teal-800 leading-tight tracking-tight">
+              <span className="font-heading text-lg font-extrabold text-navy-800 leading-tight tracking-tight">
                 Fortrust
               </span>
               <span className="hidden sm:block text-[10px] text-gray-500 font-medium uppercase tracking-wider leading-tight">
@@ -89,7 +89,7 @@ export function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 transition-colors rounded-lg hover:bg-teal-50/70"
+                    className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-brand-600 transition-colors rounded-lg hover:bg-brand-50/70"
                   >
                     {link.label}
                     <svg
@@ -113,7 +113,7 @@ export function Navbar() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block px-4 py-2.5 text-sm text-gray-600 hover:bg-teal-50 hover:text-teal-700 transition-colors"
+                        className="block px-4 py-2.5 text-sm text-gray-600 hover:bg-brand-50 hover:text-brand-600 transition-colors"
                       >
                         {child.label}
                       </Link>
@@ -124,7 +124,7 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-teal-700 transition-colors rounded-lg hover:bg-teal-50/70"
+                  className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-brand-600 transition-colors rounded-lg hover:bg-brand-50/70"
                 >
                   {link.label}
                 </Link>
@@ -138,14 +138,14 @@ export function Navbar() {
               href={process.env.NEXT_PUBLIC_SETMORE_URL || "https://fortrustmakati.setmore.com"}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-teal-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-700 hover:shadow-md transition-all duration-200"
+              className="hidden sm:inline-flex items-center gap-2 cta-shine rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-600 hover:shadow-md transition-all duration-200"
             >
               Book Free Consultation
             </a>
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 text-gray-600 hover:text-teal-700 rounded-lg hover:bg-teal-50/70 transition-colors"
+              className="lg:hidden p-2 text-gray-600 hover:text-brand-600 rounded-lg hover:bg-brand-50/70 transition-colors"
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
             >
@@ -185,7 +185,7 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-teal-700 hover:bg-teal-50 rounded-xl transition-colors"
+                  className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50 rounded-xl transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -194,7 +194,7 @@ export function Navbar() {
                     key={child.href}
                     href={child.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block pl-10 pr-4 py-2.5 text-sm text-gray-500 hover:text-teal-700 hover:bg-teal-50 rounded-xl transition-colors"
+                    className="block pl-10 pr-4 py-2.5 text-sm text-gray-500 hover:text-brand-600 hover:bg-brand-50 rounded-xl transition-colors"
                   >
                     {child.label}
                   </Link>
@@ -206,7 +206,7 @@ export function Navbar() {
                 href={process.env.NEXT_PUBLIC_SETMORE_URL || "https://fortrustmakati.setmore.com"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-center rounded-full bg-teal-600 px-5 py-3.5 text-sm font-bold text-white hover:bg-teal-700 shadow-lg transition-all"
+                className="block w-full text-center rounded-full bg-brand-500 px-5 py-3.5 text-sm font-bold text-white hover:bg-brand-600 shadow-lg transition-all"
               >
                 Book Free Consultation
               </a>
