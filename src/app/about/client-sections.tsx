@@ -41,13 +41,13 @@ export function AboutClientSections({
               </div>
             </ScrollReveal>
             <ScrollReveal animation="slide-right">
-              <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-8 border border-teal-100">
+              <div className="bg-gradient-to-br from-navy-50 to-brand-50 rounded-2xl p-8 border border-navy-100">
                 <h3 className="font-heading text-2xl font-bold text-gray-900">What Sets Us Apart</h3>
                 <ul className="mt-6 space-y-4">
                   {setApart.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center mt-0.5">
-                        <svg className="h-3.5 w-3.5 text-teal-600" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-100 flex items-center justify-center mt-0.5">
+                        <svg className="h-3.5 w-3.5 text-brand-600" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                         </svg>
                       </div>
@@ -72,13 +72,13 @@ export function AboutClientSections({
               <ScrollReveal key={m.year} animation="fade-up" delay={i * 80}>
                 <div className="flex gap-6">
                   <div className="flex flex-col items-center">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-500 to-teal-600 text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-sm">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-navy-600 to-navy-800 text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-sm">
                       {m.year.slice(-2)}
                     </div>
-                    {i < milestones.length - 1 && <div className="w-0.5 h-16 bg-teal-200" />}
+                    {i < milestones.length - 1 && <div className="w-0.5 h-16 bg-navy-200" />}
                   </div>
                   <div className="pb-8">
-                    <p className="text-sm font-bold text-teal-700">{m.year}</p>
+                    <p className="text-sm font-bold text-brand-500">{m.year}</p>
                     <p className="mt-1 text-gray-600">{m.event}</p>
                   </div>
                 </div>
@@ -103,8 +103,8 @@ export function AboutClientSections({
             {Array.from({ length: 8 }).map((_, i) => (
               <ScrollReveal key={i} animation="scale-in" delay={i * 60}>
                 <div className="text-center">
-                  <div className="mx-auto w-28 h-28 rounded-full bg-gradient-to-br from-teal-50 to-cyan-50 border-2 border-teal-100 flex items-center justify-center">
-                    <svg className="w-12 h-12 text-teal-300" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor">
+                  <div className="mx-auto w-28 h-28 rounded-full bg-gradient-to-br from-navy-50 to-navy-100 border-2 border-navy-200 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-navy-300" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                     </svg>
                   </div>
@@ -128,7 +128,7 @@ export function AboutClientSections({
             {offices.map((office, i) => (
               <ScrollReveal key={office.name} animation="fade-up" delay={i * 80}>
                 <div className="rounded-2xl border border-gray-100 bg-white p-6 hover:shadow-lg transition-all duration-300 h-full">
-                  <span className="inline-flex rounded-full bg-teal-50 px-3 py-1 text-xs font-medium text-teal-700">
+                  <span className="inline-flex rounded-full bg-navy-50 px-3 py-1 text-xs font-medium text-navy-700">
                     {office.type}
                   </span>
                   <h3 className="mt-3 text-lg font-bold text-gray-900">{office.name}</h3>

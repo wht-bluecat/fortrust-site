@@ -9,10 +9,14 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-700 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section
+        className="relative py-16 overflow-hidden"
+        style={{ backgroundImage: "linear-gradient(135deg, #14264f 0%, #1b3c73 46%, #236aa0 100%)" }}
+      >
+        <div className="hero-grain-overlay" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="font-heading text-4xl font-bold text-white">Privacy Policy</h1>
-          <p className="mt-2 text-teal-200 text-sm">Last updated: May 2025</p>
+          <p className="mt-2 text-navy-200 text-sm">Last updated: May 2025</p>
         </div>
       </section>
 

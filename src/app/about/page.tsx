@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { StatBar } from "@/components/stat-bar";
 import { CTABanner } from "@/components/cta-banner";
 import { PageHero } from "@/components/page-hero";
 import { AboutClientSections } from "./client-sections";
@@ -42,11 +41,9 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        title={<>13+ Years of Helping Filipinos <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-300">Study Abroad</span></>}
+        title={<>13+ Years Helping Filipinos <span className="text-brand-400">Study Abroad</span></>}
         subtitle="Since 2013, Fortrust Education Services has been the Philippines' most trusted study abroad agency. 3,000+ visas granted. 6 offices nationwide."
       />
-
-      <StatBar />
 
       <AboutClientSections
         milestones={milestones}

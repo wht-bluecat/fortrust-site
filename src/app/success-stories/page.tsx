@@ -17,6 +17,13 @@ const stories = [
   { name: "James", from: "Pasig", destination: "Canada", school: "Seneca College", program: "Computer Programming", quote: "The 8-step process was smooth and transparent. I always knew exactly where I was in the journey." },
 ];
 
+const destColors: Record<string, string> = {
+  Canada: "bg-red-50 text-red-700",
+  Australia: "bg-yellow-50 text-yellow-700",
+  "New Zealand": "bg-green-50 text-green-700",
+  UK: "bg-blue-50 text-blue-700",
+};
+
 export default function SuccessStoriesPage() {
   return (
     <>
@@ -31,8 +38,8 @@ export default function SuccessStoriesPage() {
             {stories.map((story) => (
               <div key={story.name} className="rounded-2xl border border-gray-100 p-6 flex flex-col hover:shadow-lg transition-all duration-300">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal-100 to-cyan-100 flex items-center justify-center">
-                    <span className="text-teal-600 font-bold text-lg">{story.name[0]}</span>
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-navy-100 to-navy-200 flex items-center justify-center">
+                    <span className="text-navy-700 font-bold text-lg">{story.name[0]}</span>
                   </div>
                   <div>
                     <p className="font-bold text-gray-900">{story.name}</p>
@@ -40,7 +47,7 @@ export default function SuccessStoriesPage() {
                   </div>
                 </div>
                 <div className="mb-4">
-                  <span className="inline-flex rounded-full bg-teal-50 px-2.5 py-0.5 text-xs font-medium text-teal-700">
+                  <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ${destColors[story.destination] ?? "bg-navy-50 text-navy-700"}`}>
                     {story.destination}
                   </span>
                 </div>

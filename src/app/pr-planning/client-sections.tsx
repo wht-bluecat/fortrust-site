@@ -36,7 +36,7 @@ export function PRPlanningClientSections() {
               <ol className="mt-4 space-y-5">
                 {steps.map((step, i) => (
                   <li key={step.title} className="flex gap-4">
-                    <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-teal-500 to-teal-600 text-white font-bold text-sm shrink-0 shadow-sm">
+                    <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-navy-600 to-navy-800 text-white font-bold text-sm shrink-0 shadow-sm">
                       {i + 1}
                     </span>
                     <div>
@@ -50,7 +50,7 @@ export function PRPlanningClientSections() {
           </ScrollReveal>
           <ScrollReveal animation="slide-right">
             <div className="space-y-6">
-              <div className="rounded-2xl bg-gradient-to-br from-teal-50 to-cyan-50 border border-teal-100 p-8">
+              <div className="rounded-2xl bg-gradient-to-br from-navy-50 to-brand-50 border border-navy-100 p-8">
                 <h3 className="font-heading text-xl font-bold text-gray-900">Why This Matters</h3>
                 <p className="mt-3 text-gray-500 text-sm leading-relaxed">
                   Choosing the wrong school or program can delay your PR application by years — or
@@ -67,8 +67,8 @@ export function PRPlanningClientSections() {
                     <span className="text-sm text-gray-600">Other agencies: Get visa → figure out PR later</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center mt-0.5">
-                      <svg className="h-3.5 w-3.5 text-teal-600" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-100 flex items-center justify-center mt-0.5">
+                      <svg className="h-3.5 w-3.5 text-brand-500" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                       </svg>
                     </div>
@@ -81,7 +81,7 @@ export function PRPlanningClientSections() {
                 <ul className="mt-4 space-y-3">
                   {pathways.map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
-                      <svg className="h-4 w-4 text-teal-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <svg className="h-4 w-4 text-brand-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
                       {item}

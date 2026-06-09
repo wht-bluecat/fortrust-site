@@ -20,7 +20,7 @@ export function FAQAccordion({ items }: { items: FAQItem[] }) {
           >
             <span className="text-base font-medium text-gray-900 pr-4">{item.question}</span>
             <svg
-              className={`h-5 w-5 shrink-0 text-teal-600 transition-transform duration-200 ${
+              className={`h-5 w-5 shrink-0 text-brand-500 transition-transform duration-200 ${
                 openIndex === index ? "rotate-180" : ""
               }`}
               fill="none"

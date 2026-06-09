@@ -40,15 +40,15 @@ export function DestinationsClientSections({ destinations }: { destinations: Des
                 {/* Content */}
                 <div className="flex-1 p-6 lg:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                   <div className="flex-1">
-                    <h2 className="text-2xl font-bold text-gray-900 group-hover:text-teal-700 transition-colors">
+                    <h2 className="text-2xl font-bold text-gray-900 group-hover:text-navy-700 transition-colors">
                       Study in {dest.country}
                     </h2>
                     <p className="mt-2 text-gray-500">{dest.tagline}</p>
                     <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {dest.highlights.map((h) => (
                         <li key={h} className="flex items-center gap-2 text-sm text-gray-600">
-                          <div className="flex-shrink-0 w-4 h-4 rounded-full bg-teal-50 flex items-center justify-center">
-                            <svg className="h-2.5 w-2.5 text-teal-600" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
+                          <div className="flex-shrink-0 w-4 h-4 rounded-full bg-brand-50 flex items-center justify-center">
+                            <svg className="h-2.5 w-2.5 text-brand-500" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                             </svg>
                           </div>
@@ -60,7 +60,7 @@ export function DestinationsClientSections({ destinations }: { destinations: Des
                   <div className="flex flex-row lg:flex-col gap-6 lg:gap-3 lg:text-right shrink-0">
                     <div>
                       <p className="text-xs text-gray-400 uppercase tracking-wider">Schools</p>
-                      <p className="text-xl font-bold text-teal-700">{dest.schools}</p>
+                      <p className="text-xl font-bold text-navy-700">{dest.schools}</p>
                     </div>
                     <div>
                       <p className="text-xs text-gray-400 uppercase tracking-wider">Tuition</p>

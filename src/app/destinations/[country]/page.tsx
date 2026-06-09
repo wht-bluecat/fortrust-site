@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CTABanner } from "@/components/cta-banner";
-import { StatBar } from "@/components/stat-bar";
 import { FAQAccordion } from "@/components/faq-accordion";
 
 const countryData: Record<string, {
@@ -144,8 +143,8 @@ export default async function CountryPage({ params }: { params: Promise<{ countr
 
   return (
     <>
+      {/* Country photo hero */}
       <section className="relative py-20 sm:py-28 overflow-hidden">
-        {/* Country photo background */}
         <Image
           src={`/destinations/${data.slug}.jpg`}
           alt={`Study in ${data.name}`}
@@ -154,21 +153,22 @@ export default async function CountryPage({ params }: { params: Promise<{ countr
           priority
           sizes="100vw"
         />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-900/90 via-teal-900/75 to-teal-800/60" />
+        {/* Navy-brand overlay instead of teal */}
+        <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(to right, rgba(20,38,79,0.92) 0%, rgba(27,60,115,0.78) 50%, rgba(35,106,160,0.55) 100%)" }} />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white leading-tight">
-              Study in <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-300">{data.name}</span>
+              Study in{" "}
+              <span className="text-brand-400">{data.name}</span>
             </h1>
-            <p className="mt-4 text-lg text-teal-100/90">{data.tagline}</p>
+            <p className="mt-4 text-lg text-navy-100/90">{data.tagline}</p>
             <div className="mt-8">
               <a
                 href={process.env.NEXT_PUBLIC_SETMORE_URL || "https://fortrustmakati.setmore.com"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-bold text-teal-800 shadow-xl hover:bg-teal-50 hover:shadow-2xl hover:scale-[1.02] transition-all duration-200"
+                className="cta-shine inline-flex items-center justify-center rounded-full bg-brand-500 px-8 py-4 text-base font-bold text-white shadow-[0_12px_30px_-8px_rgba(242,107,33,0.55)] hover:bg-brand-600 hover:scale-[1.02] transition-all duration-200"
               >
                 Book Free {data.name} Consultation
               </a>
@@ -176,8 +176,6 @@ export default async function CountryPage({ params }: { params: Promise<{ countr
           </div>
         </div>
       </section>
-
-      <StatBar />
 
       {/* Why Study Here */}
       <section className="py-20 bg-white">
@@ -189,7 +187,7 @@ export default async function CountryPage({ params }: { params: Promise<{ countr
               <ul className="mt-6 space-y-3">
                 {data.whyStudy.map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <svg className="h-5 w-5 text-teal-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <svg className="h-5 w-5 text-brand-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                     </svg>
                     <span className="text-sm text-gray-700">{item}</span>
@@ -200,7 +198,7 @@ export default async function CountryPage({ params }: { params: Promise<{ countr
             <div className="space-y-6">
               {/* Cost Table */}
               <div className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-                <div className="bg-gradient-to-r from-teal-50 to-cyan-50 px-6 py-4">
+                <div className="bg-gradient-to-r from-navy-50 to-brand-50 px-6 py-4">
                   <h3 className="font-bold text-gray-900">Cost Breakdown</h3>
                 </div>
                 <div className="divide-y divide-gray-100">
@@ -224,18 +222,18 @@ export default async function CountryPage({ params }: { params: Promise<{ countr
 
       {/* PR Pathway (Canada only) */}
       {data.prPathway && (
-        <section className="py-16 bg-teal-50">
+        <section className="py-16 bg-navy-50">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="rounded-2xl bg-white p-8 lg:p-12 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
-                <span className="inline-flex items-center rounded-full bg-teal-100 px-3 py-1 text-xs font-bold text-teal-800">EXCLUSIVE</span>
+                <span className="inline-flex items-center rounded-full bg-brand-100 px-3 py-1 text-xs font-bold text-brand-800">EXCLUSIVE</span>
                 <h2 className="font-heading text-2xl font-bold text-gray-900">Permanent Residency Planning™</h2>
               </div>
               <p className="text-gray-600 leading-relaxed max-w-3xl">{data.prPathway}</p>
               <div className="mt-6">
                 <Link
                   href="/pr-planning"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-teal-600 hover:text-teal-700"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-brand-500 hover:text-brand-600"
                 >
                   Learn more about PR Planning
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">

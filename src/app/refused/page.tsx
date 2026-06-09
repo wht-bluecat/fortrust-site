@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { CTABanner } from "@/components/cta-banner";
 import { FAQAccordion } from "@/components/faq-accordion";
-import { StatBar } from "@/components/stat-bar";
 import { RefusedClientSections } from "./client-sections";
 
 export const metadata: Metadata = {
@@ -81,11 +80,19 @@ const faqItems = [
 export default function RefusedPage() {
   return (
     <>
-      {/* Hero — Variant 2: Angled */}
-      <section className="relative bg-gradient-to-br from-teal-900 via-teal-800 to-teal-700 hero-angled overflow-hidden">
+      {/* Hero — Angled conversion variant */}
+      <section
+        className="relative hero-angled overflow-hidden"
+        style={{
+          backgroundImage:
+            "linear-gradient(135deg, #14264f 0%, #1b3c73 46%, #236aa0 100%)",
+        }}
+      >
+        {/* Grain */}
+        <div className="hero-grain-overlay" />
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-20 -right-20 w-72 h-72 bg-red-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 -left-20 w-64 h-64 bg-teal-400/10 rounded-full blur-3xl" />
+          <div className="absolute -top-20 -right-20 w-72 h-72 bg-red-500/15 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 -left-20 w-64 h-64 bg-accent-cyan/10 rounded-full blur-3xl" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 pb-24 sm:pb-32">
           <div className="max-w-3xl">
@@ -97,18 +104,16 @@ export default function RefusedPage() {
             </span>
             <h1 className="mt-6 font-heading text-4xl sm:text-5xl font-bold text-white leading-tight">
               You&apos;re not alone. And you&apos;re{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-300">
-                not out of options.
-              </span>
+              <span className="text-brand-400">not out of options.</span>
             </h1>
-            <p className="mt-6 text-lg text-teal-100/90 leading-relaxed">
+            <p className="mt-6 text-lg text-navy-100/90 leading-relaxed">
               Visa-refused reprocessing is our specialty. We&apos;ve turned hundreds of refusals into
               approvals with our 95% success rate. Get a free assessment today.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <a
                 href="#assessment-form"
-                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-bold text-teal-800 shadow-xl hover:bg-teal-50 hover:shadow-2xl hover:scale-[1.02] transition-all duration-200"
+                className="cta-shine inline-flex items-center justify-center rounded-full bg-brand-500 px-8 py-4 text-base font-bold text-white shadow-[0_12px_30px_-8px_rgba(242,107,33,0.55)] hover:bg-brand-600 hover:scale-[1.02] transition-all duration-200"
               >
                 Get Your Free Assessment
               </a>
@@ -122,8 +127,6 @@ export default function RefusedPage() {
           </div>
         </div>
       </section>
-
-      <StatBar />
 
       {/* Common Refusal Reasons */}
       <RefusedClientSections
