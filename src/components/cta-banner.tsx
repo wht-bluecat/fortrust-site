@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function CTABanner({
   title = "Ready to start your journey?",
   subtitle = "Book a free consultation with one of our expert counselors. It costs nothing, ever.",
@@ -29,12 +31,12 @@ export function CTABanner({
           >
             {buttonText}
           </a>
-          <a
-            href="/seminars"
+          <Link
+            href="/destinations"
             className="inline-flex items-center justify-center rounded-full border-2 border-white/30 px-8 py-3.5 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/50 transition-all duration-200"
           >
-            Attend a Free Seminar
-          </a>
+            Explore Destinations
+          </Link>
         </div>
       </div>
     </section>

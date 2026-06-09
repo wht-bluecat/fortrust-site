@@ -26,7 +26,6 @@ const company = [
 ];
 
 const services = [
-  { href: "/seminars", label: "Free Seminars" },
   { href: "/refused", label: "Visa Refused?" },
   { href: "/pr-planning", label: "PR Planning™" },
 ];

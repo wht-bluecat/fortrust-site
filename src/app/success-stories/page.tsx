@@ -12,7 +12,7 @@ const stories = [
   { name: "Andrea", from: "Manila", destination: "Canada", school: "Canadore College", program: "Social Service Worker", quote: "Fortrust made everything easy. From school selection to visa documentation, they guided me every step of the way." },
   { name: "Mark", from: "Cebu", destination: "Australia", school: "Academia International", program: "Business Management", quote: "I was refused before by another agency. Fortrust fixed my application and I got approved in just 6 weeks." },
   { name: "Sarah", from: "Baguio", destination: "Canada", school: "Centennial College", program: "Software Engineering", quote: "The PR Planning service was the reason I chose Fortrust. They didn't just plan my education — they planned my future in Canada." },
-  { name: "Miguel", from: "Davao", destination: "New Zealand", school: "Aspire2 International", program: "Applied Computing", quote: "Fortrust's free seminars changed my life. I attended one on a Saturday and within 3 months I was studying in Auckland." },
+  { name: "Miguel", from: "Davao", destination: "New Zealand", school: "Aspire2 International", program: "Applied Computing", quote: "My free consultation with Fortrust changed my life. I booked one on a Saturday and within 3 months I was studying in Auckland." },
   { name: "Maria", from: "Makati", destination: "UK", school: "University of London", program: "MBA", quote: "I thought studying in the UK was out of reach. Fortrust showed me it was possible and made it happen." },
   { name: "James", from: "Pasig", destination: "Canada", school: "Seneca College", program: "Computer Programming", quote: "The 8-step process was smooth and transparent. I always knew exactly where I was in the journey." },
 ];

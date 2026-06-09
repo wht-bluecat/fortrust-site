@@ -1,52 +1,72 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import dynamic from "next/dynamic";
+import { useCountUp } from "@/hooks/use-count-up";
 
 const SETMORE = process.env.NEXT_PUBLIC_SETMORE_URL || "https://fortrustmakati.setmore.com";
 
-/* Destination pins positioned around the orbiting globe */
-const pins = [
-  { code: "CA", label: "Canada", top: "8%", left: "50%", color: "var(--accent-cyan)" },
-  { code: "AU", label: "Australia", top: "70%", left: "86%", color: "var(--brand-500)" },
-  { code: "NZ", label: "New Zealand", top: "84%", left: "30%", color: "var(--accent-blue)" },
-  { code: "UK", label: "United Kingdom", top: "26%", left: "12%", color: "#ffffff" },
+/* The interactive WebGL globe is client-only (needs window/WebGL) */
+const Globe = dynamic(() => import("@/components/globe").then((m) => m.Globe), {
+  ssr: false,
+  loading: () => (
+    <div className="aspect-square w-full animate-pulse rounded-full bg-white/5" />
+  ),
+});
+
+/* Punchy floating chips around the globe */
+const floatChips = [
+  { value: "95%", label: "Visa approval", className: "top-2 -left-3 sm:-left-6", anim: "animate-bob" },
+  { value: "3,000+", label: "Sent abroad", className: "bottom-16 -left-2 sm:-left-4", anim: "animate-bob-slow" },
+  { value: "13+ yrs", label: "Since 2013", className: "bottom-4 right-0 sm:-right-4", anim: "animate-bob-fast" },
 ];
 
-/* Floating stat chips */
-const chips = [
-  { value: "95%", label: "Visa approval", className: "top-2 -left-4 sm:-left-10", anim: "animate-bob" },
-  { value: "$0", label: "Cost to you", className: "bottom-10 -left-2 sm:-left-8", anim: "animate-bob-slow" },
-  { value: "3,000+", label: "Sent abroad", className: "bottom-0 right-2 sm:right-0", anim: "animate-bob-fast" },
-];
+/* Full stat set (moved here from the old stat-bar tab) */
+function HeroStat({ target, suffix, prefix, label }: { target: number; suffix?: string; prefix?: string; label: string }) {
+  const { ref, value } = useCountUp(target, { suffix, prefix, duration: 2000 });
+  return (
+    <div className="text-center sm:text-left">
+      <p ref={ref as React.RefObject<HTMLParagraphElement>} className="font-heading text-xl sm:text-2xl font-extrabold leading-none text-white">
+        {value}
+      </p>
+      <p className="mt-1 text-[10px] sm:text-[11px] font-medium uppercase tracking-wide text-navy-200">{label}</p>
+    </div>
+  );
+}
 
 export function HomeHero() {
   return (
-    <section className="relative isolate overflow-hidden bg-navy-900">
-      {/* Layered navy gradient base */}
-      <div className="absolute inset-0 -z-20 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800" />
+    <section className="relative isolate overflow-hidden">
+      {/* Brighter brand-blue gradient base (navy -> Fortrust blue) */}
+      <div
+        className="absolute inset-0 -z-20"
+        style={{
+          backgroundImage:
+            "linear-gradient(135deg, #14264f 0%, #1b3c73 46%, #236aa0 100%)",
+        }}
+      />
 
       {/* Aurora glows (orange + cyan, drifting) */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="animate-aurora absolute -top-32 -right-24 h-[28rem] w-[28rem] rounded-full bg-brand-500/25 blur-[110px]" />
-        <div className="animate-aurora-slow absolute top-1/3 -left-32 h-[26rem] w-[26rem] rounded-full bg-accent-blue/25 blur-[120px]" />
-        <div className="animate-float-delayed absolute -bottom-32 right-1/3 h-80 w-80 rounded-full bg-accent-cyan/15 blur-[100px]" />
+        <div className="animate-aurora absolute -top-32 -right-24 h-[28rem] w-[28rem] rounded-full bg-brand-500/30 blur-[110px]" />
+        <div className="animate-aurora-slow absolute top-1/3 -left-32 h-[26rem] w-[26rem] rounded-full bg-accent-cyan/25 blur-[120px]" />
+        <div className="animate-float-delayed absolute -bottom-32 right-1/3 h-80 w-80 rounded-full bg-accent-blue/20 blur-[100px]" />
       </div>
 
       {/* Subtle dot grid */}
       <div
-        className="absolute inset-0 -z-10 opacity-[0.18]"
+        className="absolute inset-0 -z-10 opacity-[0.16]"
         style={{
           backgroundImage:
-            "radial-gradient(circle, rgba(255,255,255,0.35) 1px, transparent 1px)",
+            "radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)",
           backgroundSize: "26px 26px",
           maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
           WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-28 sm:pt-24 lg:pt-28 lg:pb-36">
-        <div className="lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:items-center">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-24 sm:pt-20 lg:pt-24 lg:pb-28">
+        <div className="lg:grid lg:grid-cols-[1fr_1.12fr] lg:gap-12 xl:gap-16 lg:items-center">
           {/* ===== LEFT: copy ===== */}
           <div className="max-w-2xl">
             <div className="hero-rise" style={{ animationDelay: "0ms" }}>
@@ -110,10 +130,10 @@ export function HomeHero() {
                 </svg>
               </a>
               <Link
-                href="/seminars"
+                href="/destinations"
                 className="inline-flex items-center justify-center rounded-full border-2 border-white/25 px-8 py-4 text-base font-semibold text-white transition-all duration-200 hover:border-white/50 hover:bg-white/10"
               >
-                Attend a Free Seminar
+                Explore Destinations
               </Link>
             </div>
 
@@ -138,80 +158,48 @@ export function HomeHero() {
             </div>
           </div>
 
-          {/* ===== RIGHT: orbiting globe + floating chips ===== */}
+          {/* ===== RIGHT: interactive world globe with Fortrust logo pins ===== */}
           <div
-            className="hero-pop relative mt-14 hidden h-[26rem] sm:flex lg:mt-0 lg:h-[30rem]"
+            className="hero-pop relative mt-16 sm:mt-14 lg:mt-0 lg:translate-x-4 xl:translate-x-8"
             style={{ animationDelay: "300ms" }}
           >
-            <div className="relative m-auto aspect-square w-[22rem] lg:w-[26rem]">
-              {/* glow halo */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-500/20 to-accent-cyan/20 blur-2xl" />
+            <div className="relative mx-auto w-[19rem] sm:w-[24rem] lg:w-[30rem]">
+              <Globe />
 
-              {/* orbit rings */}
-              <div className="animate-spin-slow absolute inset-0 rounded-full border border-dashed border-white/15" />
-              <div className="animate-spin-rev absolute inset-[12%] rounded-full border border-white/10" />
-              <div className="animate-spin-slow absolute inset-[24%] rounded-full border border-dashed border-accent-cyan/20" />
-
-              {/* destination pins on outer ring */}
-              {pins.map((p) => (
+              {/* floating stat chips */}
+              {floatChips.map((c) => (
                 <div
-                  key={p.code}
-                  className="absolute -translate-x-1/2 -translate-y-1/2"
-                  style={{ top: p.top, left: p.left }}
+                  key={c.label}
+                  className={`absolute z-[120] ${c.className} ${c.anim} rounded-2xl border border-white/15 bg-white/10 px-4 py-3 shadow-xl backdrop-blur-md`}
                 >
-                  <div className="group flex flex-col items-center gap-1">
-                    <span
-                      className="pulse-ring relative flex h-3.5 w-3.5 items-center justify-center rounded-full"
-                      style={{ color: p.color }}
-                    >
-                      <span
-                        className="relative h-3.5 w-3.5 rounded-full ring-2 ring-navy-900"
-                        style={{ background: p.color }}
-                      />
-                    </span>
-                    <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-bold tracking-wide text-white backdrop-blur">
-                      {p.code}
-                    </span>
-                  </div>
+                  <p className="font-heading text-2xl font-extrabold leading-none text-white">{c.value}</p>
+                  <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-navy-200">{c.label}</p>
                 </div>
               ))}
 
-              {/* center globe mark */}
-              <div className="absolute inset-[30%] flex items-center justify-center">
-                <div className="relative h-full w-full animate-bob-slow">
-                  <Image
-                    src="/logo-icon-white.png"
-                    alt="Fortrust globe mark"
-                    fill
-                    className="object-contain drop-shadow-[0_8px_24px_rgba(65,230,226,0.35)]"
-                    sizes="200px"
-                  />
-                </div>
-              </div>
+              {/* doodle: graduation cap */}
+              <svg className="animate-bob-slow absolute -left-4 top-10 z-[120] h-8 w-8 text-brand-300" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 10L12 5 2 10l10 5 10-5z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+                <path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
             </div>
 
-            {/* floating stat chips */}
-            {chips.map((c) => (
-              <div
-                key={c.label}
-                className={`absolute ${c.className} ${c.anim} rounded-2xl border border-white/15 bg-white/10 px-4 py-3 shadow-xl backdrop-blur-md`}
-              >
-                <p className="font-heading text-2xl font-extrabold leading-none text-white">{c.value}</p>
-                <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-navy-200">{c.label}</p>
-              </div>
-            ))}
-
-            {/* doodle: paper plane */}
-            <svg className="animate-bob absolute right-6 top-2 h-9 w-9 text-brand-400" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M22 2L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            {/* doodle: graduation cap */}
-            <svg className="animate-bob-slow absolute left-2 top-24 h-8 w-8 text-accent-cyan" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M22 10L12 5 2 10l10 5 10-5z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
-              <path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            </svg>
+            <p className="mt-4 text-center text-xs font-medium text-navy-200/80">
+              Drag to spin the globe
+            </p>
           </div>
+        </div>
+
+        {/* ===== integrated stat strip (moved from the old stat tab) ===== */}
+        <div
+          className="hero-rise mt-12 grid grid-cols-2 gap-4 rounded-2xl border border-white/12 bg-white/5 px-5 py-5 backdrop-blur-md sm:mt-14 sm:grid-cols-3 sm:gap-6 sm:px-8 lg:grid-cols-5"
+          style={{ animationDelay: "520ms" }}
+        >
+          <HeroStat target={95} suffix="%" label="Visa Approval Rate" />
+          <HeroStat target={3000} suffix="+" label="Visas Granted" />
+          <HeroStat target={300} suffix="+" label="Partner Schools" />
+          <HeroStat target={6} suffix="" label="PH Offices" />
+          <HeroStat target={13} suffix="+" label="Years Since 2013" />
         </div>
       </div>
 

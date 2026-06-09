@@ -21,7 +21,7 @@ export default function PrivacyPage() {
           <h2>1. Information We Collect</h2>
           <p>
             We collect personal information you provide when you fill out forms on our website,
-            book a consultation, attend a seminar, or communicate with us. This may include your
+            book a consultation, or communicate with us. This may include your
             name, email address, phone number, educational background, and study abroad preferences.
           </p>
 
@@ -30,7 +30,7 @@ export default function PrivacyPage() {
           <ul>
             <li>Respond to your inquiries and provide consultation services</li>
             <li>Process your study abroad applications</li>
-            <li>Send you relevant updates about programs, seminars, and deadlines</li>
+            <li>Send you relevant updates about programs and deadlines</li>
             <li>Improve our services and website experience</li>
             <li>Comply with legal obligations</li>
           </ul>

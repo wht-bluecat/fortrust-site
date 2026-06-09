@@ -19,7 +19,7 @@ const placeholderPosts = [
   { title: "5 Visa Myths That Stop Filipinos From Studying Abroad", category: "Visa Myths Busted", readTime: "6 min", excerpt: "Common misconceptions about student visas that hold people back — and the truth behind each one." },
   { title: "How Andrea Went From Manila to Canadore College", category: "Success Stories", readTime: "5 min", excerpt: "Andrea's journey from a BS Communications graduate to a Social Service Worker student in Canada." },
   { title: "Got Refused? Here's Exactly What to Do Next", category: "The Refused Pathway", readTime: "7 min", excerpt: "A step-by-step guide for students whose visa applications were rejected — and how to turn it around." },
-  { title: "Why Our Seminars Are the #1 Thing We Recommend", category: "Behind Fortrust", readTime: "4 min", excerpt: "Every Tuesday and Saturday, we host free study abroad seminars. Here's why they're our most powerful tool." },
+  { title: "Why a Free Consultation Is the Best First Step", category: "Behind Fortrust", readTime: "4 min", excerpt: "A one-on-one consultation with a Fortrust counselor maps your goals, budget, and timeline. Here's why it's our most powerful tool." },
 ];
 
 export default function BlogPage() {

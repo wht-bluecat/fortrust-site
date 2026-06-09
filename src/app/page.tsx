@@ -2,12 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { StatBar } from "@/components/stat-bar";
 import { FAQAccordion } from "@/components/faq-accordion";
 import { CTABanner } from "@/components/cta-banner";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { HomeHero } from "@/components/home-hero";
-import { TrustMarquee } from "@/components/trust-marquee";
 
 const destinations = [
   {
@@ -41,14 +39,99 @@ const destinations = [
 ];
 
 const journeySteps = [
-  { step: 1, title: "Free Consultation", desc: "Meet a counselor. Discuss your goals, budget, and timeline." },
-  { step: 2, title: "School Selection", desc: "We match you with the right school from 300+ partners." },
-  { step: 3, title: "Agency Sign-Up", desc: "Formalize your application. No fees to you." },
-  { step: 4, title: "Residency Planning", desc: "Map your post-study pathway (Canada PR, AU work rights, etc.)" },
-  { step: 5, title: "College Applications", desc: "We handle submissions to your chosen schools." },
-  { step: 6, title: "Tuition Payment", desc: "Guided payment process with school coordination." },
-  { step: 7, title: "Visa Documentation", desc: "Our team prepares your complete visa package." },
-  { step: 8, title: "Visa Submission", desc: "Lodge with confidence. 95% approval rate." },
+  {
+    step: 1,
+    title: "Free Consultation",
+    desc: "Meet a counselor. Discuss your goals, budget, and timeline.",
+    accent: "orange" as const,
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.7} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8 10.5h8M8 14h5m-9 5.5l3.2-2.1A2 2 0 019.3 17H17a3 3 0 003-3V8a3 3 0 00-3-3H7a3 3 0 00-3 3v11.5z" />
+      </svg>
+    ),
+  },
+  {
+    step: 2,
+    title: "School Selection",
+    desc: "We match you with the right school from 300+ partners.",
+    accent: "navy" as const,
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.7} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4L2.5 8.5 12 13l9.5-4.5L12 4z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6.5 10.5V15c0 1.1 2.5 2.2 5.5 2.2s5.5-1.1 5.5-2.2v-4.5M20.5 9v5" />
+      </svg>
+    ),
+  },
+  {
+    step: 3,
+    title: "Agency Sign-Up",
+    desc: "Formalize your application. No fees to you.",
+    accent: "orange" as const,
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.7} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 4.5l3 3L9 18l-4 1 1-4 10.5-10.5z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M14.5 6.5l3 3" />
+      </svg>
+    ),
+  },
+  {
+    step: 4,
+    title: "Residency Planning",
+    desc: "Map your post-study pathway (Canada PR, AU work rights, etc.)",
+    accent: "navy" as const,
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.7} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 19l-5.5 2V6L9 4m0 15l6 2m-6-2V4m6 17l5.5-2V4L15 6m0 15V6m0 0L9 4" />
+      </svg>
+    ),
+  },
+  {
+    step: 5,
+    title: "College Applications",
+    desc: "We handle submissions to your chosen schools.",
+    accent: "orange" as const,
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.7} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M7 4h7l5 5v11a1 1 0 01-1 1H7a1 1 0 01-1-1V5a1 1 0 011-1z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4v5.5H19M9 13.5h6M9 16.5h6" />
+      </svg>
+    ),
+  },
+  {
+    step: 6,
+    title: "Tuition Payment",
+    desc: "Guided payment process with school coordination.",
+    accent: "navy" as const,
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.7} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 7.5h18v9a1 1 0 01-1 1H4a1 1 0 01-1-1v-9z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 10.5h18M6.5 14.5h3" />
+      </svg>
+    ),
+  },
+  {
+    step: 7,
+    title: "Visa Documentation",
+    desc: "Our team prepares your complete visa package.",
+    accent: "orange" as const,
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.7} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8 4h8a1 1 0 011 1v15a1 1 0 01-1 1H8a1 1 0 01-1-1V5a1 1 0 011-1z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.5 3.5h5v2h-5zM9 13l2 2 3.5-3.5" />
+      </svg>
+    ),
+  },
+  {
+    step: 8,
+    title: "Visa Submission",
+    desc: "Lodge with confidence. 95% approval rate.",
+    accent: "navy" as const,
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.7} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 3L10 14M21 3l-7 18-4-9-9-4 20-5z" />
+      </svg>
+    ),
+  },
 ];
 
 const usps = [
@@ -138,14 +221,8 @@ const faqItems = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero — animated landing */}
+      {/* Hero — animated landing (globe + integrated stats) */}
       <HomeHero />
-
-      {/* Trust marquee */}
-      <TrustMarquee />
-
-      {/* Stat Bar */}
-      <StatBar />
 
       {/* Destinations — Image-backed cards */}
       <section className="py-20 bg-white">
@@ -215,26 +292,67 @@ export default function HomePage() {
               </p>
             </div>
           </ScrollReveal>
-          <ScrollReveal animation="fade-up" className="mt-12">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {journeySteps.map((step, i) => (
-                <div
-                  key={step.step}
-                  className="relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
-                  style={{ animationDelay: `${i * 80}ms` }}
-                >
-                  {/* Step number */}
-                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-600 text-white font-bold text-sm shadow-[0_6px_16px_-4px_rgba(242,107,33,0.5)]">
-                    {step.step}
-                  </span>
-                  {/* Connecting line (hidden on mobile, visible on desktop between cards) */}
-                  {step.step < 8 && (
-                    <div className="hidden lg:block absolute top-8 -right-3 w-6 h-[2px] bg-brand-200" />
-                  )}
-                  <h3 className="mt-3 text-base font-bold text-navy-900">{step.title}</h3>
-                  <p className="mt-2 text-sm text-gray-500 leading-relaxed">{step.desc}</p>
-                </div>
-              ))}
+          <ScrollReveal stagger className="mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-7">
+              {journeySteps.map((step) => {
+                const isOrange = step.accent === "orange";
+                return (
+                  <div
+                    key={step.step}
+                    className="reveal-child group relative rounded-2xl border border-gray-100 bg-white p-6 pt-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_45px_-20px_rgba(22,38,89,0.45)]"
+                  >
+                    {/* Step number chip (top-right) */}
+                    <span
+                      className={`absolute -top-3 right-5 inline-flex h-7 w-7 items-center justify-center rounded-full text-xs font-extrabold text-white shadow-md ${
+                        isOrange
+                          ? "bg-gradient-to-br from-brand-500 to-brand-600"
+                          : "bg-gradient-to-br from-navy-700 to-navy-900"
+                      }`}
+                    >
+                      {step.step}
+                    </span>
+
+                    {/* Animated dashed connector to the next card (desktop only) */}
+                    {step.step % 4 !== 0 && step.step < 8 && (
+                      <svg
+                        className="pointer-events-none absolute top-9 -right-6 hidden h-3 w-12 lg:block"
+                        viewBox="0 0 48 12"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          className="journey-connector"
+                          d="M2 6h44"
+                          stroke={isOrange ? "var(--brand-300)" : "var(--navy-300)"}
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                        />
+                        <path
+                          d="M40 2l5 4-5 4"
+                          stroke={isOrange ? "var(--brand-400)" : "var(--navy-400)"}
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    )}
+
+                    {/* Icon tile */}
+                    <div
+                      className={`journey-icon flex h-12 w-12 items-center justify-center rounded-xl text-white shadow-sm ${
+                        isOrange
+                          ? "bg-gradient-to-br from-brand-400 to-brand-600"
+                          : "bg-gradient-to-br from-navy-600 to-navy-900"
+                      }`}
+                    >
+                      {step.icon}
+                    </div>
+
+                    <h3 className="mt-4 text-base font-bold text-navy-900">{step.title}</h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-gray-500">{step.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </ScrollReveal>
         </div>
@@ -267,45 +385,6 @@ export default function HomePage() {
                 </div>
               </ScrollReveal>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Free Seminar Banner */}
-      <section className="relative bg-navy-800 py-14 overflow-hidden">
-        <div className="absolute inset-0 bg-dot-pattern opacity-30" />
-        <div className="animate-aurora-slow absolute -right-20 -top-20 h-72 w-72 rounded-full bg-brand-500/20 blur-[90px]" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            <ScrollReveal animation="slide-left">
-              <div>
-                <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-white">
-                  Free Study Abroad Seminars
-                </h2>
-                <p className="mt-2 text-navy-100 text-lg">
-                  Every Tuesday &amp; Saturday &bull; 1 hour &bull; No commitment required
-                </p>
-                <p className="mt-1 text-brand-300 text-sm font-medium">
-                  Makati HQ &bull; Also available in Cebu &amp; Baguio
-                </p>
-              </div>
-            </ScrollReveal>
-            <div className="flex gap-4">
-              <a
-                href={process.env.NEXT_PUBLIC_SETMORE_URL || "https://fortrustmakati.setmore.com"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cta-shine inline-flex items-center justify-center rounded-full bg-brand-500 px-6 py-3 text-sm font-bold text-white hover:bg-brand-600 hover:scale-[1.02] transition-all duration-200"
-              >
-                Reserve Your Spot
-              </a>
-              <Link
-                href="/seminars"
-                className="inline-flex items-center justify-center rounded-full border-2 border-white/30 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/50 transition-all duration-200"
-              >
-                Learn More
-              </Link>
-            </div>
           </div>
         </div>
       </section>

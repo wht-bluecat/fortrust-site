@@ -18,7 +18,6 @@ const navLinks = [
   },
   { href: "/refused", label: "Visa Refused?" },
   { href: "/pr-planning", label: "PR Planning" },
-  { href: "/seminars", label: "Free Seminars" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

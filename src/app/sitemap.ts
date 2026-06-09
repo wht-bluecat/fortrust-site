@@ -12,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/destinations/uk",
     "/refused",
     "/pr-planning",
-    "/seminars",
     "/about",
     "/contact",
     "/faq",
