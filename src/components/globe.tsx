@@ -22,7 +22,7 @@ const DESTS: Dest[] = [
 ];
 
 const TILT = 16; // degrees — tip the north pole toward the viewer a touch
-const AUTO_SPEED = 0.16; // degrees per frame (slow, premium)
+const AUTO_SPEED = 0.05; // degrees per frame (majestic, premium)
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const world = worldData as any;

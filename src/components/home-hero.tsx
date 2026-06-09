@@ -6,20 +6,13 @@ import { useCountUp } from "@/hooks/use-count-up";
 
 const SETMORE = process.env.NEXT_PUBLIC_SETMORE_URL || "https://fortrustmakati.setmore.com";
 
-/* The interactive WebGL globe is client-only (needs window/WebGL) */
+/* The interactive canvas globe is client-only (needs window) */
 const Globe = dynamic(() => import("@/components/globe").then((m) => m.Globe), {
   ssr: false,
   loading: () => (
     <div className="aspect-square w-full animate-pulse rounded-full bg-white/5" />
   ),
 });
-
-/* Punchy floating chips around the globe */
-const floatChips = [
-  { value: "95%", label: "Visa approval", className: "top-2 -left-3 sm:-left-6", anim: "animate-bob" },
-  { value: "3,000+", label: "Sent abroad", className: "bottom-16 -left-2 sm:-left-4", anim: "animate-bob-slow" },
-  { value: "13+ yrs", label: "Since 2013", className: "bottom-4 right-0 sm:-right-4", anim: "animate-bob-fast" },
-];
 
 /* Full stat set (moved here from the old stat-bar tab) */
 function HeroStat({ target, suffix, prefix, label }: { target: number; suffix?: string; prefix?: string; label: string }) {
@@ -37,14 +30,20 @@ function HeroStat({ target, suffix, prefix, label }: { target: number; suffix?: 
 export function HomeHero() {
   return (
     <section className="relative isolate overflow-hidden">
-      {/* Brighter brand-blue gradient base (navy -> Fortrust blue) */}
+      {/* Base gradient + mesh radials for depth */}
       <div
         className="absolute inset-0 -z-20"
         style={{
-          backgroundImage:
+          backgroundImage: [
+            "radial-gradient(ellipse 65% 55% at 8% 92%, rgba(75,35,130,0.28) 0%, transparent 70%)",
+            "radial-gradient(ellipse 55% 45% at 92% 8%, rgba(30,170,215,0.20) 0%, transparent 70%)",
             "linear-gradient(135deg, #14264f 0%, #1b3c73 46%, #236aa0 100%)",
+          ].join(", "),
         }}
       />
+
+      {/* Film-grain texture overlay (premium matte feel) */}
+      <div className="hero-grain-overlay" />
 
       {/* Aurora glows (orange + cyan, drifting) */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -55,7 +54,7 @@ export function HomeHero() {
 
       {/* Subtle dot grid */}
       <div
-        className="absolute inset-0 -z-10 opacity-[0.16]"
+        className="absolute inset-0 -z-10 opacity-[0.13]"
         style={{
           backgroundImage:
             "radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)",
@@ -80,27 +79,30 @@ export function HomeHero() {
             </div>
 
             <h1
-              className="hero-rise mt-6 font-heading text-[2.65rem] leading-[1.05] font-extrabold tracking-tight text-white sm:text-6xl lg:text-[4.1rem]"
+              className="hero-rise mt-6 font-heading text-[2.2rem] leading-[1.08] font-extrabold tracking-tight text-white sm:text-6xl lg:text-[4.1rem]"
               style={{ animationDelay: "100ms" }}
             >
               Study Abroad.
               <br />
-              <span className="relative inline-block text-brand-500">
+              {/* whitespace-nowrap prevents "Life." from orphaning on a new line,
+                  keeping the draw-on underline perfectly under the full phrase */}
+              <span className="relative inline-block whitespace-nowrap text-brand-500">
                 Change Your Life.
-                {/* hand-drawn underline doodle */}
+                {/* hand-drawn underline sweep */}
                 <svg
-                  className="absolute -bottom-3 left-0 w-full"
-                  viewBox="0 0 320 22"
+                  className="absolute -bottom-2 left-0 w-full"
+                  viewBox="0 0 320 18"
                   fill="none"
                   preserveAspectRatio="none"
                   aria-hidden="true"
                 >
                   <path
                     className="draw-underline"
-                    d="M4 14C58 6 130 4 180 8C228 12 280 12 316 6"
+                    d="M4 12C58 4 130 2 180 6C228 10 280 10 316 4"
                     stroke="var(--brand-500)"
-                    strokeWidth="5"
+                    strokeWidth="4.5"
                     strokeLinecap="round"
+                    strokeOpacity="0.85"
                   />
                 </svg>
               </span>
@@ -165,27 +167,10 @@ export function HomeHero() {
           >
             <div className="relative mx-auto w-[19rem] sm:w-[24rem] lg:w-[30rem]">
               <Globe />
-
-              {/* floating stat chips */}
-              {floatChips.map((c) => (
-                <div
-                  key={c.label}
-                  className={`absolute z-[120] ${c.className} ${c.anim} rounded-2xl border border-white/15 bg-white/10 px-4 py-3 shadow-xl backdrop-blur-md`}
-                >
-                  <p className="font-heading text-2xl font-extrabold leading-none text-white">{c.value}</p>
-                  <p className="mt-1 text-[11px] font-medium uppercase tracking-wide text-navy-200">{c.label}</p>
-                </div>
-              ))}
-
-              {/* doodle: graduation cap */}
-              <svg className="animate-bob-slow absolute -left-4 top-10 z-[120] h-8 w-8 text-brand-300" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M22 10L12 5 2 10l10 5 10-5z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
-                <path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
             </div>
 
-            <p className="mt-4 text-center text-xs font-medium text-navy-200/80">
-              Drag to spin the globe
+            <p className="mt-4 text-center text-xs font-medium text-navy-200/60 tracking-wide">
+              Drag to explore
             </p>
           </div>
         </div>
