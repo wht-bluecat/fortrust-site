@@ -6,6 +6,8 @@ import { FAQAccordion } from "@/components/faq-accordion";
 import { CTABanner } from "@/components/cta-banner";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { HomeHero } from "@/components/home-hero";
+import { PartnerMarquee } from "@/components/partner-marquee";
+// import { SuccessCarousel } from "@/components/success-carousel"; // disabled until real student stories exist
 
 const destinations = [
   {
@@ -279,6 +281,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Partner Schools — trust marquee */}
+      <PartnerMarquee />
+
       {/* 8-Step Journey */}
       <section className="py-20 bg-navy-50 bg-dot-pattern">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -388,6 +393,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Success Stories carousel — disabled until real student stories are provided.
+          Re-enable by restoring the import and the <SuccessCarousel /> render below. */}
+      {/* <SuccessCarousel /> */}
 
       {/* FAQ */}
       <section className="py-20 bg-gray-50">
